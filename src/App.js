@@ -15,10 +15,10 @@ class App extends React.Component {
             <React.Fragment>
                 <CssBaseline />
                 <Header />
+                <MainScreen />
                 <Button variant="contained" color="primary">
                     Hello World
                 </Button>
-                <MainScreen />
             </React.Fragment>
         );
     }

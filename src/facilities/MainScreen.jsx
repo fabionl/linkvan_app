@@ -15,12 +15,16 @@ import NoticesIcon from '@material-ui/icons/SurroundSound';
 
 import MainScreenItem from './MainScreenItem';
 
+const ContainerStyle = {
+    marginBottom: 10,
+};
+
 class MainScreen extends React.Component {
     render() {
         return (
             <React.Fragment>
                 {/* <CssBaseline /> */}
-                <Container maxWidth="sm">
+                <Container maxWidth="sm" style={ContainerStyle}>
                     <MainScreenItem
                         title="Shelter"
                         onClick={() => this.setState({ test: 1 })}

@@ -55,6 +55,10 @@ import {
 //     }
 // `;
 
+const PaperStyle = {
+    marginBottom: 5,
+};
+
 class MainScreenItem extends React.Component {
     constructor(props) {
         super(props);
@@ -71,7 +75,7 @@ class MainScreenItem extends React.Component {
         return (
             <React.Fragment>
                 {/* <CssBaseline /> */}
-                <Paper onClick={() => this.handleClick()}>
+                <Paper style={PaperStyle} onClick={() => this.handleClick()}>
                     <List>
                         <ListItem button={true}>
                             <ListItemAvatar>

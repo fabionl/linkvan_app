@@ -3,13 +3,14 @@ import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
-import Appbar from '@material-ui/core/AppBar';
+import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import Button from '@material-ui/core/Button';
 
-import HomeIcon from '@material-ui/icons/Home';
+import NavBar from './NavBar';
+
 import SearchIcon from '@material-ui/icons/Search';
 
 import LinkvanLogo from '../images/linkvan_horizontal.png';
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             flexGrow: 1,
+            marginBottom: 15,
         },
         img: {
             paddingTop: 0,
@@ -88,17 +90,12 @@ function Header() {
 
     return (
         <div className={classes.root} id="headerSection">
-            <Appbar position="static" color="default" className="topAppBar">
+            <AppBar position="static" color="default">
                 <Toolbar>
-                    <Typography className={classes.title} variant="h6" noWrap>
+                    <Typography variant="title" noWrap>
                         <img className={classes.img} src={LinkvanLogo} alt="logo" />
                     </Typography>
-                    <Typography>
-                        <Button variant="outlined" href="/" className={classes.button}>
-                            <HomeIcon className={classes.icon} />
-                            Home
-                        </Button>
-                    </Typography>
+                    <NavBar />
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
@@ -113,7 +110,7 @@ function Header() {
                         />
                     </div>
                 </Toolbar>
-            </Appbar>
+            </AppBar>
         </div>
     );
 }
