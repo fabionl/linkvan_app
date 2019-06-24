@@ -1,98 +1,46 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import styled from 'styled-components';
-// import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-// import Image from 'react-bootstrap/Image';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 
-import ReactSVG from 'react-svg';
-import ShelterIcon from '../icons/shelter.svg';
-import FoodIcon from '../icons/cutlery.svg';
-import MedicalIcon from '../icons/medical.svg';
-import HygieneIcon from '../icons/hygiene.svg';
-import TechnologyIcon from '../icons/technology.svg';
-import LegalIcon from '../icons/advocacy.svg';
-import LearningIcon from '../icons/learning.svg';
-import CrisisIcon from '../icons/crisis.svg';
+import FacilitiesItem from './FacilitiesItem';
+import data from '../data/facilities.json';
+import { Grid } from '@material-ui/core';
 
-const FacilitiesStyle = styled.div`
-    margin-top: 1em;
-    width: 50em;
-    border: 1px solid #000;
+// import styled from 'styled-components';
 
-    h1 {
-        font-size: 1.7em;
-    }
-    a {
-        margin-bottom: 0.5em;
-        font-size: 1.4em;
-    }
+// const FacilitiesStyle = styled.div`
+//     h1 {
+//         font-size: 1.7em;
+//     }
+// `;
 
-    .linkvan-icon: {
-        height: 30px;
-        width: 30px;
-    }
-
-    .facilities-category{
-        display: block;
-        margin-bottom: 12px;
-        padding: 8px 12px;
-        width:100%;
-        text-align: left;
-    }
-`;
+// const data = {};
 
 class Facilities extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { data };
+    }
+
     render() {
         return (
-            <FacilitiesStyle>
-                <h1 className='text-left'>What service are you looking for?</h1>
+            <React.Fragment>
                 <Container>
-                <a className='btn btn-light facilities-category' href='/' >
-                    <i className='linkvan-icon'><ReactSVG src={ShelterIcon} /> </i>
-                    <span>Shelter</span>
-                    <i class="glyphicon glyphicon-chevron-right chevron-right" />
-                </a>
-                <a className='btn btn-light facilities-category' href='/' >
-                    <i className='linkvan-icon'><ReactSVG src={FoodIcon} /> </i>
-                    <span>Food</span>
-                    <i class="glyphicon glyphicon-chevron-right chevron-right" />
-                </a>
-                <a className='btn btn-light facilities-category' href='/' >
-                    <i className='linkvan-icon'><ReactSVG src={MedicalIcon} /> </i>
-                    <span>Medical</span>
-                    <i class="glyphicon glyphicon-chevron-right chevron-right" />
-                </a>
-                <a className='btn btn-light facilities-category' href='/' >
-                    <i className='linkvan-icon'><ReactSVG src={HygieneIcon} /> </i>
-                    <span>Hygiene</span>
-                    <i class="glyphicon glyphicon-chevron-right chevron-right" />
-                </a>
-                <a className='btn btn-light facilities-category' href='/' >
-                    <i className='linkvan-icon'><ReactSVG src={TechnologyIcon} /> </i>
-                    <span>Technology</span>
-                    <i class="glyphicon glyphicon-chevron-right chevron-right" />
-                </a>
-                <a className='btn btn-light facilities-category' href='/' >
-                    <i className='linkvan-icon'><ReactSVG src={LegalIcon} /> </i>
-                    <span>Legal</span>
-                    <i class="glyphicon glyphicon-chevron-right chevron-right" />
-                </a>
-                <a className='btn btn-light facilities-category' href='/' >
-                    <i className='linkvan-icon'><ReactSVG src={LearningIcon} /> </i>
-                    <span>Learning</span>
-                    <i class="glyphicon glyphicon-chevron-right chevron-right" />
-                </a>
-                <a className='btn btn-light facilities-category' href='/' >
-                    <i className='linkvan-icon'><ReactSVG src={CrisisIcon} /> </i>
-                    <span>Crisis Lines</span>
-                    <i class="glyphicon glyphicon-chevron-right chevron-right" />
-                </a>
+                    <Typography color="inherit" variant="h1">
+                        Facilities
+                    </Typography>
                 </Container>
-            </FacilitiesStyle>
+                <Grid container spacing={3}>
+                    {this.state.data.nearno.map(fac => (
+                        // <Grid item sm={12} md={6} lg={4}>
+                        <Grid item xs={12} sm={6} md={4} lg={3}>
+                            <FacilitiesItem key={fac.id} facility={fac} />
+                        </Grid>
+                    ))}
+                </Grid>
+            </React.Fragment>
         );
     }
 }
 
 export default Facilities;
-

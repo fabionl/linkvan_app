@@ -92,7 +92,7 @@ function Header() {
         <div className={classes.root} id="headerSection">
             <AppBar position="static" color="default">
                 <Toolbar>
-                    <Typography variant="title" noWrap>
+                    <Typography variant="h5" noWrap>
                         <img className={classes.img} src={LinkvanLogo} alt="logo" />
                     </Typography>
                     <NavBar />

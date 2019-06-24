@@ -14,6 +14,7 @@ const rootStyle = {
 };
 
 const buttonStyle = {
+    float: 'left',
     margin: 0,
 };
 
@@ -29,7 +30,7 @@ class NavBar extends React.Component {
             <List component="nav" style={rootStyle}>
                 <ListItem component="div">
                     <ListItemText inset>
-                        <Typography color="inherit" variant="title">
+                        <Typography color="inherit" variant="h1">
                             <Button variant="outlined" href="/" style={buttonStyle}>
                                 <HomeIcon style={iconStyle} />
                                 Home
